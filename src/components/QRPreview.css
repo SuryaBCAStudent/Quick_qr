@@ -1,0 +1,148 @@
+.qr-preview {
+  animation: scaleIn 0.4s ease both;
+  text-align: center;
+}
+
+.qr-preview__header {
+  margin-bottom: var(--space-6);
+}
+
+.qr-preview__badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.qr-preview__title {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+/* ============================================================
+   Badge component
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.badge--success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge--muted {
+  background: var(--color-card);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-card-border);
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-success);
+  flex-shrink: 0;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   Canvas area
+   ============================================================ */
+
+.qr-preview__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+}
+
+.qr-preview__canvas-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-preview__glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.qr-preview__canvas-inner {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.qr-preview__canvas-inner:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 8px 48px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.qr-preview__canvas-inner canvas {
+  display: block;
+  border-radius: 4px;
+}
+
+/* Content label */
+.qr-preview__content-label {
+  max-width: 420px;
+  width: 100%;
+}
+
+.qr-preview__content-text {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  word-break: break-all;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* Actions */
+.qr-preview__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .qr-preview__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

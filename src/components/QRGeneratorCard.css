@@ -1,0 +1,274 @@
+/* ============================================================
+   Shared card base
+   ============================================================ */
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card:hover {
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ============================================================
+   QR Generator Card
+   ============================================================ */
+
+.gen-card {
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.gen-card__header {
+  margin-bottom: var(--space-6);
+}
+
+.gen-card__title {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.gen-card__subtitle {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+.gen-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Field */
+.gen-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.gen-card__field--error .gen-card__textarea {
+  border-color: var(--color-error) !important;
+  box-shadow: 0 0 0 3px var(--color-error-bg);
+}
+
+.gen-card__textarea {
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  background: var(--color-input-bg);
+  border: 1.5px solid var(--color-input-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  line-height: 1.6;
+  padding: var(--space-4) var(--space-5);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  outline: none;
+}
+
+.gen-card__textarea::placeholder {
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+
+.gen-card__textarea:hover {
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+}
+
+.gen-card__textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-input-focus);
+  background: rgba(59,130,246,0.04);
+}
+
+.gen-card__field-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 22px;
+}
+
+.gen-card__error {
+  font-size: var(--font-sm);
+  color: var(--color-error);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.gen-card__hint {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+.gen-card__hint kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 5px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  font-family: var(--font-family);
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+}
+
+.gen-card__count {
+  font-size: var(--font-xs);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+/* Actions */
+.gen-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Button system
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background var(--transition-fast);
+  border-radius: inherit;
+}
+
+.btn:not(:disabled):hover::after {
+  background: rgba(255,255,255,0.06);
+}
+
+.btn:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+/* Primary */
+.btn--primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.btn--primary:not(:disabled):hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.55), inset 0 1px 0 rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+/* Large variant */
+.btn--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-base);
+  border-radius: var(--radius-lg);
+}
+
+/* Ghost */
+.btn--ghost {
+  background: var(--color-card);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-card-border);
+}
+
+.btn--ghost:not(:disabled):hover {
+  color: var(--color-text-primary);
+  border-color: rgba(255,255,255,0.2);
+  background: var(--color-card-hover);
+}
+
+/* Danger ghost */
+.btn--danger {
+  color: var(--color-error);
+}
+
+.btn--danger:not(:disabled):hover {
+  color: var(--color-error);
+  border-color: rgba(239, 68, 68, 0.3);
+  background: var(--color-error-bg);
+}
+
+/* Success ghost */
+.btn--success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.btn--success:not(:disabled):hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Spinner */
+.btn__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-5);
+    border-radius: var(--radius-xl);
+  }
+
+  .gen-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn--lg {
+    width: 100%;
+  }
+}
