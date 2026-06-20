@@ -22,7 +22,7 @@
 <p>
   <img src="https://img.shields.io/badge/No%20Backend-100%25%20Client--Side-06b6d4?style=flat-square" />
   &nbsp;
-  <img src="https://img.shields.io/badge/No%20Sign--Up-Just%20Paste%20%26%20Generate-818cf8?style=flat-square" />
+  <img src="https://img.shields.io/badge/No%20Sign--Up-Just%20Use%20%26%20Generate-818cf8?style=flat-square" />
   &nbsp;
   <img src="https://img.shields.io/badge/Vercel-Ready-000000?style=flat-square&logo=vercel&logoColor=white" />
 </p>
