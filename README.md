@@ -98,7 +98,7 @@ Fonts        →  Inter (Google Fonts)
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/quickqr.git
+git clone https://github.com/SuryaBCAStudent/quickqr.git
 cd quickqr
 
 # 2. Install dependencies
@@ -108,7 +108,7 @@ npm install
 npm run dev
 ```
 
-Open **http://localhost:5173** in your browser. That's it!
+Open **https://quickqr-tau.vercel.app/** in your browser. That's it!
 
 ### Build for Production
 
